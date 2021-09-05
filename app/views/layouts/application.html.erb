@@ -4,15 +4,22 @@
     <title>Friendly</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% flash.each do |key, value| %> 
-      <%= content_tag(:div, value, class: "alert alert-#{key}") %> 
-    <% end %> 
-    <%= yield %>
+    <div class="d-flex flex-column wrapper">
+    
+      <%= render 'layouts/header' %>
+      <% flash.each do |key, value| %> 
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %> 
+      <% end %> 
+      
+      <div class="flex-grow-1" >
+      
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
