@@ -18,7 +18,7 @@ Simple Facebook like app implementation with Ruby On Rails
 
 To get a local copy up and running follow these simple example steps.
 ```
-$ git clone git@github.com:trekab/members-only.git
+$ git clone git@github.com:tigamadou/friendly.git
 ```
 
 Then you browse to the folder and exucute the following commands
