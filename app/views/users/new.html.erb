@@ -1,12 +1,12 @@
-
-
-
-<div class="container">
-  <div class="row align-items-center just-content-center">
-    <div class="col  flex-grow-1">
-      <h1>Sign up</h1> 
+<div class="container h-100">
+  <div class="row align-items-center just-content-center h-100">
+    <div class="col-12 col-lg  flex-grow-1">
+      <h1 class="fs-1 text-primary">Sign up</h1> 
+      <div class="fs-5">
+        Create your account now!
+      </div>
     </div>
-    <div class="col py-5 col-lg-4">
+    <div class="col-12 col-lg py-5 col-lg-4">
          <% if @user.errors.any? %> 
             <div class="alert alert-danger"> 
                 <%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:
@@ -17,26 +17,29 @@
                 </ul> 
             </div> 
         <% end %> 
-        <%= form_with(model: @user, local: true) do |f| %> 
-            <div class="form-floating mb-3">
-                <%= f.text_field :name, class: 'form-control' %> 
-                <%= f.label :name %> 
-            </div>
-            <div class="form-floating mb-3">
-                <%= f.email_field :email, class: 'form-control' %> 
-                <%= f.label :email %> 
-            </div>
-            <div class="form-floating mb-3">
-                <%= f.password_field :password, class: 'form-control' %> 
-                <%= f.label :password %> 
-            </div>
-            <div class="form-floating mb-3">
-                <%= f.password_field :password_confirmation, class: 'form-control' %> 
-                <%= f.label :password_confirmation %> 
-            </div>
-            <%= f.submit "Create my account", class: 'btn btn-primary' %> 
-            
-         <% end %>
+        <div class="bg-white p-3 rounded shadow-lg">
+        
+            <%= form_with(model: @user, local: true) do |f| %> 
+                <div class="form-floating mb-3">
+                    <%= f.text_field :name, class: 'form-control' %> 
+                    <%= f.label :name %> 
+                </div>
+                <div class="form-floating mb-3">
+                    <%= f.email_field :email, class: 'form-control' %> 
+                    <%= f.label :email %> 
+                </div>
+                <div class="form-floating mb-3">
+                    <%= f.password_field :password, class: 'form-control' %> 
+                    <%= f.label :password %> 
+                </div>
+                <div class="form-floating mb-3">
+                    <%= f.password_field :password_confirmation, class: 'form-control' %> 
+                    <%= f.label :password_confirmation %> 
+                </div>
+                <%= f.submit "Create my account", class: 'btn btn-primary' %> 
+                
+            <% end %>
+        </div>
     </div>
     
   </div>
