@@ -5,7 +5,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-![](https://github.com/tigamadou/postly/workflows/Linters/badge.svg)
+![](https://github.com/tigamadou/friendly/workflows/Linters/badge.svg)
 
 Simple Facebook like app implementation with Ruby On Rails
 
@@ -24,7 +24,7 @@ $ git clone git@github.com:trekab/members-only.git
 Then you browse to the folder and exucute the following commands
 
 ```
- $ cd postly
+ $ cd friendly
 ```
 
 
@@ -80,16 +80,16 @@ This project is [MIT](lic.url) licensed.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/tigamadou/postly.svg?style=flat-square
-[contributors-url]: https://github.com/tigamadou/postly/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/tigamadou/postly.svg?style=flat-square
-[forks-url]: https://github.com/tigamadou/postly/network/members
-[stars-shield]: https://img.shields.io/github/stars/tigamadou/postly.svg?style=flat-square
-[stars-url]: https://github.com/tigamadou/postly/stargazers
-[issues-shield]: https://img.shields.io/github/issues/tigamadou/postly.svg?style=flat-square
-[issues-url]: https://github.com/tigamadou/postly/issues
-[license-shield]: https://img.shields.io/github/license/tigamadou/postly.svg?style=flat-square
-[license-url]: https://github.com/tigamadou/postly/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/tigamadou/friendly.svg?style=flat-square
+[contributors-url]: https://github.com/tigamadou/friendly/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/tigamadou/friendly.svg?style=flat-square
+[forks-url]: https://github.com/tigamadou/friendly/network/members
+[stars-shield]: https://img.shields.io/github/stars/tigamadou/friendly.svg?style=flat-square
+[stars-url]: https://github.com/tigamadou/friendly/stargazers
+[issues-shield]: https://img.shields.io/github/issues/tigamadou/friendly.svg?style=flat-square
+[issues-url]: https://github.com/tigamadou/friendly/issues
+[license-shield]: https://img.shields.io/github/license/tigamadou/friendly.svg?style=flat-square
+[license-url]: https://github.com/tigamadou/friendly/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/amadou-ibrahim
 [product-screenshot]: images/screenshot.png
