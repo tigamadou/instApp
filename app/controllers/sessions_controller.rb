@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash.now[:success] = 'Connected!'
-      redirect_to user_path(user.id)
+      redirect_to root_path
     else
       flash.now[:danger] = 'Wrong credentials.!'
       render :new
