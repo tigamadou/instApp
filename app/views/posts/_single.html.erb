@@ -15,8 +15,9 @@
     <p class="card-text pb-4">
       <%= post.content%>
     </p>
-
-    <%  if action_name != 'show' %>
+    
+    
+    <%  if request.env['PATH_INFO']  != "/posts/#{post.id}" %>
       <%= link_to(post_path post) do %>
         <span class="badge rounded-pill  text-dark" title="Edit">
           <i class="bi bi-eye"></i> Show
