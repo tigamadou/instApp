@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  root to: "posts#index"
+  get '/profile/:id', to: 'users#show', as: 'profile'
   resources :posts do
     collection do
       post :confirm
