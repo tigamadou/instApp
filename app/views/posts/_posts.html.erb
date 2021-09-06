@@ -1,0 +1,3 @@
+<% @posts.order(created_at: :desc).each do |post| %>
+  <%= render 'posts/single', post: post %>
+<% end %>

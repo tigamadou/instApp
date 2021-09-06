@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<div class="card mb-4" >
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+        <h1 class="fs-4">Home</h1>
+        <div>
+            <%= link_to(new_post_path) do %>
+                <span class="btn btn-light" title="Create">
+                    <i class="bi bi-plus-lg"></i> Create
+                </span>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'posts/posts' %>
+
+
+
