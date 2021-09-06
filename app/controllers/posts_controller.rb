@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :should_be_author, only: %i[ edit update destroy]
 
   def index
     @posts = Post.all
@@ -63,6 +64,10 @@ class PostsController < ApplicationController
   end
 
   private
+  def should_be_author
+   
+    not_found if !helpers.is_author?(@post) 
+  end
 
   def set_post
     @post = Post.find(params[:id])

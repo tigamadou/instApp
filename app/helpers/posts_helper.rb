@@ -6,4 +6,8 @@ module PostsHelper
       post_path
     end
   end
+
+  def is_author?(post)
+    return true if current_user.id == post.user.id
+  end
 end
