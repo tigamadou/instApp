@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    redirect_to '/404'
+    raise ActiveRecord::RecordNotFound 
   end
 end
