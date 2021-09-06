@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    raise ActiveRecord::RecordNotFound 
+    raise ActiveRecord::RecordNotFound
   end
 end
