@@ -9,7 +9,15 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if params[:back]
+      @post = Post.new(post_params)
+    else
+      @post = Post.new
+    end
+  end
+
+  def confirm
+    @post = Post.new(post_params)
   end
 
   def edit
@@ -56,6 +64,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :image)
+    params.require(:post).permit(:content, :image, :image_cache)
   end
 end

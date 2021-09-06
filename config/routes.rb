@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+    collection do
+      post :confirm
+    end
+  end
+  
   resources :sessions, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new', as: 'login'
   get '/register', to: 'users#new', as: 'register'
