@@ -1,0 +1,43 @@
+<div class="card mb-4 " >
+ <div class="px-3 pt-2">
+        <div>
+                <%= link_to post.user.name, user_path(post.user) %>
+
+        </div>
+        <span class="text-muted fs-6">
+            <%= post.created_at.strftime('%d/%m/%Y at %H:%M  ') %> by
+        </span>
+    </div>
+
+  
+  <%= image_tag(post.image.url, class: 'card-img-top' ) if post.image && post.image.url %>
+
+  <div class="card-body">
+    
+    <p class="card-text pb-4">
+        <%= post.content%>
+    </p>
+    
+    
+    <%  if action_name != 'show' %>
+        <%= link_to(post_path post) do %>
+            <span class="badge rounded-pill  text-dark" title="Edit">
+                <i class="bi bi-eye"></i> Show
+            </span>
+        <% end %>
+    <% end %>
+    <% if post.user.id == current_user.id%>
+        <%= link_to(edit_post_path post) do %>
+            <span class="badge rounded-pill  text-dark" title="Edit">
+                <i class="bi bi-pencil"></i> Edit
+            </span>
+        <% end %>
+        <a title="Edit" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/posts/<%= post.id%>"> 
+            <span class="badge rounded-pill text-dark">
+            <i class="bi bi-x-lg"></i> Delete
+            </span>
+        </a>
+    <% end %>
+  </div>
+  
+</div>

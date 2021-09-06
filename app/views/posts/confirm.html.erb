@@ -1,13 +1,39 @@
-<h1>確認画面</h1>
-<%= form_with(model: @post, url: posts_path, local: true) do |form| %>
-  <!-- 確認画面でDescription pour afficher l'image téléchargée -->
+<h1>Confirm</h1>
+<div class="alert alert-warning">
+    Publish with the following contents?
+</div>
+
+
+<div class="card mb-4 rounded shadow-sm" >
+ <div class="px-3 pt-2">
+        <div> <%= current_user.name%></div>
+        
+    </div>
+
+  
   <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.hidden_field :content %>
-  <%= form.submit "Poster" %>
-<% end %>
-<%= form_with(model:@post, url:new_post_path, local:true, method:"get") do |form| %>
-  <%= form.hidden_field :image_cache %>
-  <%= form.hidden_field :content %>
-  <%= form.submit "Retour", name: "back" %>
-<% end %>
+
+  <div class="card-body">
+    
+    <p class="card-text pb-4">
+        <%= @post.content%>
+    </p>
+    <div class="d-flex">
+    <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+      <%= form.hidden_field :image %>
+      <%= form.hidden_field :content %>
+      <%= form.hidden_field :image_cache %>
+      <%= form.submit "Poster", class: "btn btn-primary" %>
+    <% end %>
+    <%= form_with(model:@post, url:new_post_path, local:true, method:"get") do |form| %>
+      <%= form.hidden_field :image %>
+      <%= form.hidden_field :content %>
+      <%= form.hidden_field :image_cache %>
+      <%= form.submit "Back", name: "back",class: "btn btn-light" %>
+    <% end %>
+    
+    </div>
+ 
+  </div>
+  
+</div>

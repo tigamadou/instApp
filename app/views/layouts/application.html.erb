@@ -8,15 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="pt-5">
     <div class="d-flex flex-column wrapper">
     
       <%= render 'layouts/header' %>
-      <% flash.each do |key, value| %> 
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %> 
-      <% end %> 
+     
       
-      <div class="flex-grow-1" >
+      <div class="flex-grow-1 container pt-4" >
       
         <%= yield %>
       </div>
