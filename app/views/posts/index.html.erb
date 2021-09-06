@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="card mb-4" >
   <div class="card-body">
-   
     <div class="d-flex justify-content-between">
         <h1 class="fs-4">Home</h1>
         <div>
@@ -14,13 +13,8 @@
     </div>
   </div>
 </div>
-    
 
+<%= render 'posts/posts' %>
 
-<% @posts.each do |post| %>
-      <%= render 'single', post: post %>
-<% end %>
-
-<br>
 
 
