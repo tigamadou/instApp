@@ -1,15 +1,8 @@
-<div class="tile rounded " >
+<div class="card mb-3 tile rounded " >
  
     
    <%= link_to(post_path post) do %>
    <div class="square  rounded shadow-sm" style="background-image: url(<%= post.image.url %> )" ></div>
    <% end %>
 
-  <%= content_tag :div , post.content.truncate(100), class: 'card-body' if post.content.length>0 %>
-
-   <p class="card-text border-top px-3 py-2">
-        <span class="text-muted fs-7">
-          <%= post.created_at.strftime('%d/%m/%Y at %H:%M  ') %> by
-      </span>
-      </p>
 </div>

@@ -33,11 +33,12 @@
 
   <% end %>
 
-  <%= content_tag :div , post.content.truncate(100), class: 'card-body' if post.content.length>0 %>
+    <%= content_tag :div , post.content.truncate(100), class: 'card-body' if post.content.length>0 if truncate%>
+    <%= content_tag :div , post.content, class: 'card-body' if post.content.length>0 if !truncate%>
 
    <p class="card-text border-top px-3 py-2">
         <span class="text-muted fs-7">
-          <%= post.created_at.strftime('%d/%m/%Y at %H:%M  ') %> by
+          <%= post.created_at.strftime('%d/%m/%Y at %H:%M  ') %> 
       </span>
       </p>
 </div>
