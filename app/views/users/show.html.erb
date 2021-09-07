@@ -1,7 +1,13 @@
 <div class="card mb-4" >
   <div class="card-body">
-    <h1 class="fs-4"> <%= @user.name %>'s Profile</h1>
-    <p class="text-muted">E-mail address: <%= @user.email %></p>
+  <div class="d-flex align-items-center">
+  
+    <%= image_tag(@user.image.url, class: 'rounded-circle avatar shadow-sm' ) if @user.image && @user.image.url %>
+    <div class="ms-4">
+      <h1 class="fs-4"> <%= @user.name %>'s Profile</h1>
+      <p class="text-muted">E-mail address: <%= @user.email %></p>
+    </div>
+  </div>
   </div>
 </div>
     

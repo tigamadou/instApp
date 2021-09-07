@@ -7,38 +7,9 @@
       </div>
     </div>
     <div class="col-12 col-lg py-5 col-lg-6">
-         <% if @user.errors.any? %> 
-            <div class="alert alert-danger"> 
-                <%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:
-                <ul> 
-                    <% @user.errors.full_messages.each do |message| %> 
-                        <li><%= message %></li> 
-                    <% end %> 
-                </ul> 
-            </div> 
-        <% end %> 
+         
         <div class="bg-white p-3 rounded shadow-lg">
-        
-            <%= form_with(model: @user, local: true) do |f| %> 
-                <div class="form-floating mb-3">
-                    <%= f.text_field :name, class: 'form-control' %> 
-                    <%= f.label :name %> 
-                </div>
-                <div class="form-floating mb-3">
-                    <%= f.email_field :email, class: 'form-control' %> 
-                    <%= f.label :email %> 
-                </div>
-                <div class="form-floating mb-3">
-                    <%= f.password_field :password, class: 'form-control' %> 
-                    <%= f.label :password %> 
-                </div>
-                <div class="form-floating mb-3">
-                    <%= f.password_field :password_confirmation, class: 'form-control' %> 
-                    <%= f.label :password_confirmation %> 
-                </div>
-                <%= f.submit "Create my account", class: 'btn btn-primary' %> 
-                
-            <% end %>
+            <%= render 'form', user: @user %>
         </div>
     </div>
     

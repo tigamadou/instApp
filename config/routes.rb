@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'errors/internal_server_error'
   root to: "posts#index"
   get '/profile/:id', to: 'users#show', as: 'profile'
+  get '/profile/:id/edit', to: 'users#edit', as: 'edit_profile_path'
   resources :posts do
     collection do
       post :confirm
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new', as: 'login'
   get '/register', to: 'users#new', as: 'register'
-  resources :users, only: [:new, :create,  :show]
+  resources :users
   get '/', to: redirect('/login')
 
   get "/404", to: "errors#not_found", via: :all
