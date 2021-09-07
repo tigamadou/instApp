@@ -1,1 +1,30 @@
-<%= render 'form', user: @user %>
+<div class="row">
+    <div class="col-md-3">
+        <% if action_name =='edit'%>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <% if @user.image && @user.image.url%>
+                        <div class="text-left py-3 ">      
+                            
+                            <div class="square  rounded-circle shadow-sm" style="background-image: url(<%= @user.image.url %> )" ></div>
+                        </div>
+                    <% end %>
+                    <label class=" btn btn-light" for="image">
+                    <i class="bi bi-card-image fs-4"></i> Select a picture
+                    </label>
+                
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="col-md-9">
+    
+        <div class="card mb-4" >
+        <div class="card-body">
+            <%= render 'form', user: @user %>
+        
+        </div>
+        
+        </div>
+    </div>
+</div>
