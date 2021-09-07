@@ -5,10 +5,12 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @style = 'default'
   end
 
   def show
     @posts = Post.all
+    
   end
 
   def new

@@ -1,55 +1,9 @@
 
-<div class="d-flex position-relative page">
-  <div class="main-content">
-    <div class=" mb-4" >
-      <div class="card-body">
-        <div class="d-flex justify-content-between">
-            <h1 class="fs-4">Welcome <%= current_user.name%></h1>
-            <div>
-                <%= link_to(new_post_path) do %>
-                    <span class="btn btn-light" title="Create">
-                        <i class="bi bi-plus-lg"></i> Create
-                    </span>
-                <% end %>
-            </div>
-        </div>
-      </div>
-    </div>
-    <%= render 'posts/posts' %>
-  </div>
-  <div class="sidebar px-2 sticky-top" style="top:50px">
-    <div class=" mb-4" >
-      <div class="card-body">
-        <div class="d-flex align-items-center mb-3">
-          <%=link_to profile_path current_user do %>
-            <%= image_tag(current_user.image.url, class: 'rounded-circle avatar shadow-sm' ) if current_user.image && current_user.image.url %>
-          <% end %>
-          <div class="ms-2">
-            <div class="fs-6">
-              <%= link_to profile_path current_user do %> 
-                <span class="text-dark "> <%= current_user.name %> </span>
-              <% end %>
-            </div>
-            <div class="fs-7 text-muted"> <%= current_user.email%></div>
-            
-          </div>
-        </div>
-
-         <%= link_to(new_post_path) do %>
-              <span class="btn btn-light" title="Create">
-                  <i class="bi bi-plus-lg"></i> Create a new Post
-              </span>
-          <% end %>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
-<% content_for :mainContent do %>
-  <%#  %>
-  <%= render 'posts/posts' %>
+<% content_for :mainContent do %>  
+  <%= render 'posts/posts'  %>
 <% end %>
 
 <% content_for :sidebarContent do %>

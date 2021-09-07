@@ -1,6 +1,20 @@
-<% @posts.order(created_at: :desc).each do |post| %>
-  <%= render 'posts/single', post: post %>
-<% end %>
+
+  <div class="row">
+    <% @posts.order(created_at: :desc).each do |post| %>
+      <% if @style=='tiles' %>
+        <div class="col-sm-4">
+          <%= render 'posts/tile', post: post %>
+        </div>
+      <% else %>
+        <div class="col-12">
+          <%= render 'posts/single', post: post %>
+        </div>
+      <% end %>
+    <% end %>
+ </div>
+
+
+
 <% if @posts.count == 0%>
 <div class="card" >
   <div class="card-body" >
