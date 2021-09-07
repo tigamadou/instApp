@@ -10,6 +10,8 @@ class PostsController < ApplicationController
 
   def show
     @posts = Post.all
+    @favorite = current_user.favorites.find_by(post_id: @post.id)
+    
     
   end
 

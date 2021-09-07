@@ -36,9 +36,13 @@
     <%= content_tag :div , post.content.truncate(100), class: 'card-body' if post.content.length>0 if truncate%>
     <%= content_tag :div , post.content, class: 'card-body' if post.content.length>0 if !truncate%>
 
-   <p class="card-text border-top px-3 py-2">
-        <span class="text-muted fs-7">
-          <%= post.created_at.strftime('%d/%m/%Y at %H:%M  ') %> 
-      </span>
-      </p>
+   <div class="card-text border-top px-3 py-2 d-flex align-items-center">
+      <%= content_tag(:span, (like_or_dislike_btn post)) %> 
+      <%= content_tag(:span, (likes post), class: 'badge text-muted fs-7') %>
+      <%= content_tag(:div, ("#{time_ago_in_words post.created_at} ago"), class: 'badge text-muted fs-7') %> 
+      
+  
+    </div>
+    
+    
 </div>
