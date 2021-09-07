@@ -8,13 +8,13 @@ module ApplicationHelper
                         post_id: post.id
                     ),
                     method: :delete,
-                    class: 'btn rounded-circle btn-danger') do
-                        concat content_tag :span, nil, class: 'bi bi-heart'
+                    class: 'btn rounded-circle  like liked') do
+                        concat content_tag :span, nil, class: 'bi bi-heart ', title: 'Dislike'
                     end
     
         else
-          link_to(favorites_path(post_id: post.id), method: :post, class: 'btn rounded-circle btn-light') do
-                concat content_tag :span, nil, class: 'bi bi-heart'
+          link_to(favorites_path(post_id: post.id), method: :post, class: 'btn rounded-circle btn-light like') do
+                concat content_tag :span, nil, class: 'bi bi-heart', title: 'Like'
                 
             end
          end
