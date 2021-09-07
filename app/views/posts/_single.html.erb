@@ -1,20 +1,45 @@
 <div class="card mb-3 " >
 
   <div class="px-3 pt-2">
+  <div class="">
+        <div class="d-flex align-items-center mb-3">
+          <%=link_to profile_path post.user do %>
+            <div class="thumb32 rounded-circle " style="background-image: url(<%= post.user.image.url %> )" >
+            
+            </div>
+            <%# <%= image_tag(post.user.image.url, class: 'rounded-circle avatar shadow-sm' ) if post.user.image && post.user.image.url %>
+          <% end %>
+          <div class="ms-2">
+            <div class="fs-6">
+              <%= link_to profile_path post.user do %> 
+                <span class="text-dark "> <%= post.user.name %> </span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     <div>
-        <%= link_to post.user.name, user_path(post.user) %>
+        
     </div>
-    <span class="text-muted fs-6">
-        <%= post.created_at.strftime('%d/%m/%Y at %H:%M  ') %> by
-    </span>
+    
   </div>
 
-  <%= image_tag(post.image.url, class: 'card-img-top' ) if post.image && post.image.url %>
+  <%  if request.env['PATH_INFO']  != "/posts/#{post.id}" %>
+    <%= link_to(post_path post) do %>
+      <%= image_tag(post.image.url, class: 'card-img-top' ) if post.image && post.image.url  %>
+    <% end %>
+  <% else %>
+     <%= image_tag(post.image.url, class: 'card-img-top' ) if post.image && post.image.url  %>
+
+  <% end %>
 
   <div class="card-body">
-    <p class="card-text pb-4">
-      <%= post.content%>
-    </p>
+      <%= content_tag :p , post.content.truncate(100) %>
+      <p class="card-text pb-4">
+        <span class="text-muted fs-7">
+          <%= post.created_at.strftime('%d/%m/%Y at %H:%M  ') %> by
+      </span>
+      </p>
     
     
     <%  if request.env['PATH_INFO']  != "/posts/#{post.id}" %>
@@ -25,7 +50,7 @@
       <% end %>
     <% end %>
 
-    <% if post.user.id == current_user.id%>
+    <% if post.user.id == post.user.id%>
       <%= link_to(edit_post_path post) do %>
         <span class="badge rounded-pill  text-dark" title="Edit">
           <i class="bi bi-pencil"></i> Edit

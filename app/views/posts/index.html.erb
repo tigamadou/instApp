@@ -1,11 +1,10 @@
-<p id="notice"><%= notice %></p>
-<div class="d-flex">
-  <div class="main-content">
 
-    <div class="card mb-4" >
+<div class="d-flex position-relative page">
+  <div class="main-content">
+    <div class=" mb-4" >
       <div class="card-body">
         <div class="d-flex justify-content-between">
-            <h1 class="fs-4">Home</h1>
+            <h1 class="fs-4">Welcome <%= current_user.name%></h1>
             <div>
                 <%= link_to(new_post_path) do %>
                     <span class="btn btn-light" title="Create">
@@ -19,10 +18,10 @@
 
     <%= render 'posts/posts' %>
   </div>
-  <div class="sidebar px-2">
+  <div class="sidebar px-2 sticky-top" style="top:50px">
     <div class=" mb-4" >
       <div class="card-body">
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center mb-3">
           <%=link_to profile_path current_user do %>
             <%= image_tag(current_user.image.url, class: 'rounded-circle avatar shadow-sm' ) if current_user.image && current_user.image.url %>
           <% end %>
@@ -33,8 +32,15 @@
               <% end %>
             </div>
             <div class="fs-7 text-muted"> <%= current_user.email%></div>
+            
           </div>
         </div>
+
+         <%= link_to(new_post_path) do %>
+              <span class="btn btn-light" title="Create">
+                  <i class="bi bi-plus-lg"></i> Create a new Post
+              </span>
+          <% end %>
       </div>
     </div>
   </div>

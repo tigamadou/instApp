@@ -10,11 +10,14 @@
   <body class="pt-5">
     <div class="d-flex flex-column wrapper">
       <%= render 'layouts/header' %>
-      <div class="flex-grow-1 container pt-4" >
-        <% flash.each do |key, value| %> 
-          <%= content_tag(:div, value, class: "alert alert-#{key}") %> 
-        <% end %> 
-        <%= yield %>
+      <div class="container justify-content-center">
+        <div class="pt-4" >
+          <% flash.each do |key, value| %> 
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %> 
+          <% end %>
+          <p id="notice"><%= notice %></p>
+          <%= yield %>
+        </div>
       </div>
     </div>
   </body>
