@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :should_be_author, only: %i[edit update destroy]
+  layout 'main', except: [:new, :edit]
 
   def index
     @posts = Post.all
   end
 
   def show
+    @posts = Post.all
   end
 
   def new
@@ -58,7 +60,8 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      flash[:success] = "Post deleted!."
+      format.html { redirect_to posts_url }
       format.json { head :no_content }
     end
   end

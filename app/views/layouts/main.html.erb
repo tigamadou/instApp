@@ -16,9 +16,23 @@
             <%= content_tag(:div, value, class: "alert alert-#{key}") %> 
           <% end %>
           <p id="notice"><%= notice %></p>
-          <%= yield %>
+          
+          <div class="d-flex position-relative page">
+            <div class="main-content d-flex flex-column">
+              <div class=" mb-4" >
+                <%= yield :mainContent %>
+              </div>
+              
+            </div>
+            <div class="sidebar px-2 sticky-top" >
+              <div class=" mb-4" >
+              <%= render 'layouts/sidebar'%>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </body>
 </html>
+

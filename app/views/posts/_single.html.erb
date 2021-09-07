@@ -1,66 +1,44 @@
 <div class="card mb-3 " >
 
-  <div class="px-3 pt-2">
-  <div class="">
-        <div class="d-flex align-items-center mb-3">
-          <%=link_to profile_path post.user do %>
-            <div class="thumb32 rounded-circle " style="background-image: url(<%= post.user.image.url %> )" >
-            
-            </div>
-            <%# <%= image_tag(post.user.image.url, class: 'rounded-circle avatar shadow-sm' ) if post.user.image && post.user.image.url %>
-          <% end %>
-          <div class="ms-2">
-            <div class="fs-6">
-              <%= link_to profile_path post.user do %> 
-                <span class="text-dark "> <%= post.user.name %> </span>
-              <% end %>
+  <div class="px-3 py-2 border-bottom">
+    <div class="">
+          <div class="d-flex align-items-center ">
+            <%=link_to profile_path post.user do %>
+              <div class="thumb32 rounded-circle " style="background-image: url(<%= post.user.image.url %> )" ></div>
+              <%# <%= image_tag(post.user.image.url, class: 'rounded-circle avatar shadow-sm' ) if post.user.image && post.user.image.url %>
+            <% end %>
+            <div class="ms-2">
+              <div class="fs-6">
+                <%= link_to profile_path post.user do %> 
+                  <span class="text-dark "> <%= post.user.name %> </span>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
+      <div>
+          
       </div>
-    <div>
-        
+      
     </div>
-    
-  </div>
 
-  <%  if request.env['PATH_INFO']  != "/posts/#{post.id}" %>
-    <%= link_to(post_path post) do %>
-      <%= image_tag(post.image.url, class: 'card-img-top' ) if post.image && post.image.url  %>
-    <% end %>
+    <%  if request.env['PATH_INFO']  != "/posts/#{post.id}" %>
+    <div class="text-center">
+    
+      <%= link_to(post_path post) do %>
+        <%= image_tag(post.image.url, class: 'card-img-top' ) if post.image && post.image.url  %>
+      <% end %>
+    </div>
   <% else %>
      <%= image_tag(post.image.url, class: 'card-img-top' ) if post.image && post.image.url  %>
 
   <% end %>
 
-  <div class="card-body">
-      <%= content_tag :p , post.content.truncate(100) %>
-      <p class="card-text pb-4">
+  <%= content_tag :div , post.content.truncate(100), class: 'card-body' if post.content.length>0 %>
+
+   <p class="card-text border-top px-3 py-2">
         <span class="text-muted fs-7">
           <%= post.created_at.strftime('%d/%m/%Y at %H:%M  ') %> by
       </span>
       </p>
-    
-    
-    <%  if request.env['PATH_INFO']  != "/posts/#{post.id}" %>
-      <%= link_to(post_path post) do %>
-        <span class="badge rounded-pill  text-dark" title="Edit">
-          <i class="bi bi-eye"></i> Show
-        </span>
-      <% end %>
-    <% end %>
-
-    <% if post.user.id == post.user.id%>
-      <%= link_to(edit_post_path post) do %>
-        <span class="badge rounded-pill  text-dark" title="Edit">
-          <i class="bi bi-pencil"></i> Edit
-        </span>
-      <% end %>
-      <a title="Edit" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/posts/<%= post.id%>"> 
-        <span class="badge rounded-pill text-dark">
-          <i class="bi bi-x-lg"></i> Delete
-        </span>
-      </a>
-    <% end %>
-  </div>
 </div>

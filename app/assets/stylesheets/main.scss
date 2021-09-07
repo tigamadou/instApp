@@ -11,16 +11,16 @@ html,body{
 }
 
 .container{
-    max-width: 935px;
+    width: 935px;
 }
 
 .main-content{
-    max-width: 614px;
+    width: 614px;
     margin-right: 300px;
 }
 
 .sidebar{
-    max-width: 293px;
+    width: 293px;
     position: absolute;
     left: 650px;
 }
@@ -39,10 +39,20 @@ img.thumb{
     height: 32px;
     background-size: cover;
     background-position: center;
+    background-color: #f1f1f1;
+}
+
+.thumb80{
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f1f1f1;
 }
 
 img.avatar{
     width: 40px;
+    background-color: #f1f1f1;
 }
 
 .fs-7 {

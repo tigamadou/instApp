@@ -12,8 +12,8 @@
 
   <div class="field mb-2">
     <% if post.image && post.image.url%>
-      <div class="text-left py-3 ">      
-        <%= image_tag(post.image.url, class: 'img-fluid mb-3 thumb rounded')  %>
+      <div class="text-center py-3 ">      
+        <%= image_tag(post.image.url, class: 'img-fluid mb-3  rounded')  %>
       </div>
     <% end %>
     <%= form.file_field :image,class: 'visually-hidden', id: 'picture' %>
