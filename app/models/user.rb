@@ -8,6 +8,9 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, unless: :skip_validations
   
   mount_uploader :image, AvatarUploader
+
   has_many :posts
-  has_many :favorites, dependent: :destroy
+  has_many :favorites,class_name: 'Favorite', foreign_key: 'user_id', dependent: :destroy
+  has_many :favorite_posts, through: :favorites, source: 'post'
+  
 end

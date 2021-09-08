@@ -3,7 +3,7 @@
 
 
 <% content_for :mainContent do %>  
-  <%= render 'posts/posts'  %>
+  <%= render 'posts/posts' , posts: @posts %>
 <% end %>
 
 <% content_for :sidebarContent do %>

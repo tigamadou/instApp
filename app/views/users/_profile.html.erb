@@ -1,0 +1,33 @@
+<div class="card mb-4" >
+  <div class="card-body">
+    <div class="d-flex align-items-start justify-content-between">
+      <div class="d-flex align-items-center">
+        <div class="thumb80 rounded-circle " style="background-image: url(<%= @user.image.url %> )" ></div>
+        <div class="ms-4">
+          <h1 class="fs-4"> <%= @user.name %>'s Profile</h1>
+          <p class="text-muted">E-mail address: <%= @user.email %></p>
+        </div>
+      </div>
+      <%= link_to(edit_profile_path @user) do %>
+          <span class="btn btn-light rounded-circle" title="Create">
+              <i class="bi bi-pencil"></i>
+          </span>
+      <% end %>
+    </div>
+  </div>
+  
+  <ul class="nav justify-content-center nav-tabs">
+    <li class="nav-item">
+      
+      <%= link_to 'POSTS',profile_path(@user), class: "nav-link #{'active' if action_name== 'show'} "  %> 
+               
+    <li class="nav-item">
+      
+       <%= link_to 'FAVORITES',profile_favorites_path(@user), class: "nav-link #{'active' if action_name== 'index'}"  %> 
+    </li>
+  </ul>
+</div>
+
+
+    
+

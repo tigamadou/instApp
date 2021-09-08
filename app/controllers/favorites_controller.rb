@@ -11,4 +11,10 @@ class FavoritesController < ApplicationController
         flash[:success] = "#{favorite.post.user.name} Unblogged Mr.'s blog"
         redirect_to posts_path
     end
+
+    def index
+        @user = User.find(params[:profile_id])
+        @style = 'tiles'
+    end
+
 end

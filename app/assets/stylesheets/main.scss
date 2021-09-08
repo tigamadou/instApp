@@ -92,3 +92,10 @@ padding-bottom: 100%;
         opacity: 1;
     }
 }
+.nav-tabs {
+
+    .nav-link.active{
+        background-color: #f1f2f6;
+        border-color: #f1f1f1
+    }
+}

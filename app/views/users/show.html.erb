@@ -1,22 +1,6 @@
-<div class="card mb-4" >
-  <div class="card-body">
-  <div class="d-flex align-items-start justify-content-between">
+  <%= render 'profile' %>
 
-    <div class="d-flex align-items-center">
-      <div class="thumb80 rounded-circle " style="background-image: url(<%= @user.image.url %> )" ></div>
-      
-      <div class="ms-4">
-        <h1 class="fs-4"> <%= @user.name %>'s Profile</h1>
-        <p class="text-muted">E-mail address: <%= @user.email %></p>
-      </div>
-    </div>
-    <%= link_to(edit_user_path @user) do %>
-        <span class="btn btn-light rounded-circle" title="Create">
-            <i class="bi bi-pencil"></i>
-        </span>
-    <% end %>
-  </div>
-  </div>
-</div>
+
+
     
-<%= render 'posts/posts' %>
+<%= render 'posts/posts', posts: @posts %>
