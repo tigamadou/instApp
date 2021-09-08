@@ -3,7 +3,7 @@
     <div class="">
           <div class="d-flex align-items-center ">
             <%=link_to profile_path post.user do %>
-              <div class="thumb32 rounded-circle " style="background-image: url(<%= post.user.image.url %> )" ></div>
+              <div class="thumb32 rounded-circle " style="background-image: url(<%= post.user.image.url ? post.user.image.url : image_url('avatar') %> )" ></div>
               <%# <%= image_tag(post.user.image.url, class: 'rounded-circle avatar shadow-sm' ) if post.user.image && post.user.image.url %>
             <% end %>
             <div class="ms-2">

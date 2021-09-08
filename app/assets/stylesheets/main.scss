@@ -35,6 +35,8 @@ img.thumb{
 }
 
 .thumb32{
+    display: block;
+    background-image: url('/app/assets/images/avatar.jpg');
     width: 32px;
     height: 32px;
     background-size: cover;
@@ -43,6 +45,7 @@ img.thumb{
 }
 
 .thumb150{
+    background-image: url('/app/assets/images/avatar.jpg');
     width: 150px;
     height: 150px;
     background-size: cover;
