@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user.skip_validations = true
     respond_to do |format|
       if @user.update(user_params)
-        flash[:success] = "Profile successfully updated."
+        flash[:primary] = "Profile successfully updated."
         format.html { redirect_to user_path(@user.id) }
         format.json { render :show, status: :ok, location: @user }
       else

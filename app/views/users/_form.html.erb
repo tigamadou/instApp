@@ -29,6 +29,7 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %> 
         <%= f.label :password_confirmation %> 
     </div>
-    <%= f.submit "Create my account", class: 'btn btn-primary' %> 
+    <%= f.submit "Create my account", class: 'btn btn-primary' if action_name == 'create' %> 
+    <%= f.submit "Save", class: 'btn btn-primary' if action_name == 'edit' %> 
     
 <% end %>

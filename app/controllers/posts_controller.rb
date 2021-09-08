@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        flash[:success] = 'Post was successfully created.!'
+        flash[:primary] = 'Post was primaryfully created.!'
         format.html { redirect_to @post }
         format.json { render :show, status: :created, location: @post }
       else
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        flash[:success] = "Post was successfully updated."
+        flash[:primary] = "Post was primaryfully updated."
         format.html { redirect_to @post }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -64,7 +64,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      flash[:success] = "Post deleted!."
+      flash[:primary] = "Post deleted!."
       format.html { redirect_to posts_url }
       format.json { head :no_content }
     end
