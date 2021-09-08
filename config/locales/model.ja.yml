@@ -1,17 +1,17 @@
-ja:
-activerecord:
-models:
-blog: ブログ
-user: ユーザー
-attributes:
-blog:
-title: Title
-content: 内容
-user:
-title: Title
-name: 名前
-email: メールアドレス
-current_password: 現在のパスワード
-password: パスワード
-password_confirmation: 確認用パスワード
-remember_me: ログインを記憶
+fr:
+  activerecord:
+    models:
+      post: article
+      user: utilisateurs
+    attributes:
+      post:
+        title: titre
+        content: contenu
+      user:
+        title: titre
+        name: nom
+        email: adresse email
+        current_password: mot de passe
+        password: mot de passe
+        password_confirmation: confirmation du mot de passe
+        remember_me: Se rappeler de moi

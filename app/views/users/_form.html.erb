@@ -2,7 +2,7 @@
 
     <% if user.errors.any? %> 
         <div class="alert alert-danger"> 
-            <%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:
+            <%= t 'errors.template.header.other', model: 'user', count: user.errors.count %>
             <ul> 
                 <% @user.errors.full_messages.each do |message| %> 
                     <li><%= message %></li> 
