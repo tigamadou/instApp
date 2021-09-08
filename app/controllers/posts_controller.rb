@@ -38,6 +38,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        UserMailer.user_mail(current_user,@post).deliver  ##Addendum
         flash[:primary] = 'Post was primaryfully created.!'
         format.html { redirect_to @post }
         format.json { render :show, status: :created, location: @post }

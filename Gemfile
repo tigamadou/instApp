@@ -16,10 +16,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bcrypt'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'rexml'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
+  gem 'letter_opener_web'
 end
 
 group :development do

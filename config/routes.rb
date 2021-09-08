@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+  mount LetterOpenerWeb::Engine, at: "/inbox" if Rails.env.development?
+
   get 'errors/not_found'
   get 'errors/internal_server_error'
   root to: "posts#index"
