@@ -13,7 +13,7 @@
     <h4>Post Details</h1>
     <div class="d-flex align-items-center mb-3">
       <%=link_to profile_path current_user do %>
-        <div class="thumb32 rounded-circle " style="background-image: url(<%= current_user.image.url ? current_user.image.url : image_url('avatar') %> )" ></div>
+        <div class="thumb32 rounded-circle " style="background-image: url(<%= current_user.image.url ? current_user.image.url : image_url('avatar.jpg') %> )" ></div>
       <% end %>
       <div class="ms-2">
         <div class="fs-6">
