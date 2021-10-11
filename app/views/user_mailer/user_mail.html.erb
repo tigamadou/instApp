@@ -1,0 +1,40 @@
+
+
+
+
+<div class="card mb-3 " >
+     <div class="px-3 py-2 border-bottom">
+        <div class="">
+            <div class="d-flex align-items-center ">
+                <%=link_to profile_path @post.user do %>
+                    <div class="thumb32 rounded-circle " style="background-image: url(<%= @user.image.url %> )" ></div>
+                <% end %>
+                <div class="ms-2">
+                    <div class="fs-6">
+                        <%= link_to profile_path @post.user do %> 
+                        <span class="text-dark "> <%= @post.user.name %> </span>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div>            
+    <h1>Congratulations <%= @user.name %>!</h1>
+    <h1>Your post has been published</h1>
+    
+   
+    <div class="text-center">
+
+      <%= link_to(post_path @post )do %>
+        <%= image_tag(@post.image.url, class: 'card-img-top' ) if @post.image && @post.image.url  %>
+      <% end %>
+    </div>
+  
+
+    <%= content_tag :div , @post.content.truncate(50), class: 'card-body' if @post.content.length>0%>
+    
+
+   
+    
+    
+</div>

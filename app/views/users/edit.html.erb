@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-3">
+        <% if action_name =='edit'%>
+            <div class=" mb-2">
+                <div class="card-body">
+                   
+                        <div class="text-left py-3 ">      
+                            <label  for="image" class="square  rounded-circle shadow-sm" style="cursor: pointer; background-image: url(<%= @user.image.url ? @user.image.url : image_url('avatar.jpg') %> )" ></label>
+                        </div>
+                   
+                    <label class=" btn bg-white" for="image">
+                    <i class="bi bi-card-image fs-4"></i> Select a picture
+                    </label>
+                
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="col-md-9">
+    
+        <div class="card mb-4" >
+        <div class="card-body">
+            <%= render 'form', user: @user %>
+        </div>
+        
+        </div>
+    </div>
+</div>

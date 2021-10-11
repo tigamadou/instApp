@@ -1,0 +1,48 @@
+<div class="card mb-3 " >
+  <div class="px-3 py-2 border-bottom">
+    <div class="">
+          <div class="d-flex align-items-center ">
+            <%=link_to profile_path post.user do %>
+              <div class="thumb32 rounded-circle " style="background-image: url(<%= post.user.image.url ? post.user.image.url : image_url('avatar.jpg') %> )" ></div>
+              <%# <%= image_tag(post.user.image.url, class: 'rounded-circle avatar shadow-sm' ) if post.user.image && post.user.image.url %>
+            <% end %>
+            <div class="ms-2">
+              <div class="fs-6">
+                <%= link_to profile_path post.user do %> 
+                  <span class="text-dark "> <%= post.user.name %> </span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div>
+          
+      </div>
+      
+    </div>
+    
+    <%  if request.env['PATH_INFO']  != "/posts/#{post.id}" %>
+    <div class="text-center">
+    
+      <%= link_to(post_path post) do %>
+        <%= image_tag(post.image.url, class: 'card-img-top' ) if post.image && post.image.url  %>
+      <% end %>
+    </div>
+  <% else %>
+     <%= image_tag(post.image.url, class: 'card-img-top' ) if post.image && post.image.url  %>
+
+  <% end %>
+
+    <%= content_tag :div , post.content.truncate(100), class: 'card-body' if post.content.length>0 if truncate%>
+    <%= content_tag :div , post.content, class: 'card-body' if post.content.length>0 if !truncate%>
+
+   <div class="card-text border-top px-3 py-2 d-flex align-items-center">
+      <%= content_tag(:span, (like_or_dislike_btn post)) %> 
+      <%= content_tag(:span, (likes post), class: 'badge text-muted fs-7') %>
+      <%= content_tag(:div, ("#{time_ago_in_words post.created_at} ago"), class: 'badge text-muted fs-7') %> 
+      
+  
+    </div>
+    
+    
+</div>

@@ -1,0 +1,13 @@
+<div class="card mb-3 tile rounded " >
+ 
+    
+   <%= link_to(post_path post) do %>
+      <div class="square  rounded shadow-sm" style="background-image: url(<%= post.image.url %> )" ></div>
+      <span class="overlay d-flex justify-content-center align-items-center">
+         <span class="btn text-white roun fs-3">
+            <i class="bi bi-heart-fill"> <%= post.favorites.count%></i>
+         </span>
+      </span>
+   <% end %>
+   
+</div>

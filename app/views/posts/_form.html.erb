@@ -1,0 +1,48 @@
+<%= form_with(model: post, local: true, url:choose_new_or_edit) do |form| %>
+  <% if @post.errors.any? %>
+      <div class="alert alert-danger">
+        <div><%= pluralize(@post.errors.count, "error") %> prohibited this @post from being saved:</div>
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+  <div class="field mb-2">
+    <% if post.image && post.image.url%>
+      <div class="text-center py-3 ">      
+        <%= image_tag(post.image.url, class: 'img-fluid mb-3  rounded')  %>
+      </div>
+    <% end %>
+    <%= form.file_field :image,class: 'visually-hidden', id: 'picture' %>
+    <label class=" btn btn-light" for="picture">
+      <i class="bi bi-card-image fs-4"></i> Select a picture
+    </label>
+    <%= form.hidden_field :image_cache %>
+  </div>
+
+  
+  <div class="form-floating mb-2">
+    <%= form.text_area :content, :class => "form-control", placeholder: "Leave a comment here", style: "height: 100px" %>
+    <%= form.label :content %>
+  </div>
+  
+  <div class="d-flex justify-content-between ">
+    <%= link_to(posts_path)  do %>
+        <div class="btn btn-light">
+          <i class="bi bi-chevron-compact-left"></i> Back
+        </div>
+    <% end%>
+    <% if action_name == "new"%>
+      <button type="submit" class="btn btn-primary">
+        <i class="bi bi-check-lg"></i> Publish
+      </button>
+    <% else %>      
+      <button type="submit" class="btn btn-primary">
+        Save <i class="bi bi-check-lg"></i> 
+      </button>
+    <% end %>
+  </div>
+<% end %>

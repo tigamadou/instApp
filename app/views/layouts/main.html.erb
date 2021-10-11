@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InstApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body class="pt-5">
+    <div class="d-flex flex-column wrapper">
+      <%= render 'layouts/header' %>
+      <div class="container justify-content-center">
+        <div class="pt-4" >
+          <% flash.each do |key, value| %> 
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %> 
+          <% end %>
+          <p id="notice"><%= notice %></p>
+          
+          <div class="d-flex position-relative page">
+            <div class="main-content d-flex flex-column">
+              <div class=" mb-4" >
+                <%= yield :mainContent %>
+              </div>
+              
+            </div>
+            <div class="sidebar px-2 sticky-top" >
+              <div class=" mb-4" >
+              <%= render 'layouts/sidebar'%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

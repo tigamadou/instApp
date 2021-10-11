@@ -1,0 +1,46 @@
+<div class=" mb-4" >
+  <div class="card-body">
+    <div class="d-flex align-items-center justify-content-start">
+      <div class="thumb150 rounded-circle " style="background-image: url(<%= @user.image.url ? @user.image.url : image_url('avatar.jpg') %> )" ></div>
+     
+      <div class="d-flex ">
+        <div class="ms-4 flex-grow-1">
+          <h1 class="fs-3 fw-normal mb-3"> <%= @user.name %></h1>
+          <div class="d-flex justify-content-center align-items-center">
+            <span class="fs-5"><span class="fw-bold"><%= @user.posts.count %></span> posts</span>
+            <span class=" fs-5 ms-4"><span class="fw-bold"><%= @user.favorites.count %></span>  Favorites</span>
+          </div>
+        </div>
+        <div>
+          <%= link_to(edit_profile_path @user) do %>
+            <span class="btn bg-white ms-4 " title="Create">
+                <i class="bi bi-pencil"></i> Edit Profile
+            </span>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ul class="nav justify-content-center nav-tabs">
+    <li class="nav-item">
+      
+      <%= link_to profile_path(@user), class: "nav-link #{'active' if action_name== 'show'} " do %>
+        <i class="bi bi-grid-3x3"></i>
+        <span class="ms-1">POSTS</span>
+      <% end %>
+               
+    <li class="nav-item">
+      
+       <%= link_to (profile_favorites_path(@user)), class: "nav-link #{'active' if action_name== 'index'}"  do %> 
+       <i class="bi bi-heart-fill"></i>
+       <span class="ms-1">FAVORITES</span>
+        
+       <% end %>
+    </li>
+  </ul>
+</div>
+
+
+    
+

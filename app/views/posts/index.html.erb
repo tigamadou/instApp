@@ -1,0 +1,35 @@
+
+
+
+
+<% content_for :mainContent do %>  
+  <%= render 'posts/posts' , posts: @posts %>
+<% end %>
+
+<% content_for :sidebarContent do %>
+<div class="card" >
+  <div class="card-body" >
+        <div class="d-flex align-items-center mb-3">
+          <%=link_to profile_path current_user do %>
+            
+            <div class="thumb32 rounded-circle " style="background-image: url(<%= current_user.image.url ? current_user.image.url : image_url('avatar.jpg') %> )" ></div>
+          <% end %>
+          <div class="ms-2">
+            <div class="fs-6">
+              <%= link_to profile_path current_user do %> 
+                <span class="text-dark "> <%= current_user.name %> </span>
+              <% end %>
+            </div>
+            <div class="fs-7 text-muted"> <%= current_user.email%></div>
+            
+          </div>
+        </div>
+
+         <%= link_to(new_post_path) do %>
+              <span class="btn btn-light" title="Create">
+                  <i class="bi bi-plus-lg"></i> Create a new Post
+              </span>
+          <% end %>
+      </div>
+       </div>
+<% end %>
